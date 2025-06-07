@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->unsignedBigInteger('profile_picture')->nullable()->change(); // ensure nullable
-            $table->foreign('profile_picture')
-                ->references('id')
-                ->on('profile_pictures')
-                ->onDelete('set null');
-        });
+        // Schema::table('companies', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('profile_picture')->nullable()->change(); // ensure nullable
+        //     $table->foreign('profile_picture')
+        //         ->references('id')
+        //         ->on('profile_pictures')
+        //         ->onDelete('set null');
+        // });
 
-        Schema::table('applicants', function (Blueprint $table) {
-            $table->unsignedBigInteger('profile_picture')->nullable()->change(); // ensure nullable
-            $table->foreign('profile_picture')
-                ->references('id')
-                ->on('profile_pictures')
-                ->onDelete('set null');
-        });
+        // Schema::table('applicants', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('profile_picture')->nullable()->change(); // ensure nullable
+        //     $table->foreign('profile_picture')
+        //         ->references('id')
+        //         ->on('profile_pictures')
+        //         ->onDelete('set null');
+        // });
 
     }
 
@@ -34,12 +34,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-         Schema::table('companies', function (Blueprint $table) {
-            $table->dropForeign(['profile_picture']);
-        });
+    //      Schema::table('companies', function (Blueprint $table) {
+    //         $table->dropForeign(['profile_picture']);
+    //     });
 
-        Schema::table('applicants', function (Blueprint $table) {
-            $table->dropForeign(['profile_picture']);
-        });
+    //     Schema::table('applicants', function (Blueprint $table) {
+    //         $table->dropForeign(['profile_picture']);
+    //     });
     }
 };

@@ -12,8 +12,8 @@ return new class extends Migration
 public function up(): void
 {
     // Fix invalid data first
-    DB::table('companies')->where('profile_picture', '')->update(['profile_picture' => null]);
-    DB::table('applicants')->where('profile_picture', '')->update(['profile_picture' => null]);
+    DB::table('companies')->whereNull('profile_picture')->update(['profile_picture' => null]);
+    DB::table('applicants')->whereNull('profile_picture')->update(['profile_picture' => null]);
 
     Schema::table('companies', function (Blueprint $table) {
         $table->unsignedBigInteger('profile_picture')->nullable()->change();
