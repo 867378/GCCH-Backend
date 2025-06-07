@@ -19,10 +19,10 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'gcch-frontend.vercel.app','https://gcch-frontend-g6ap777pw-867378s-projects.vercel.app'
+        'https://gcch-frontend.vercel.app','https://gcch-frontend-g6ap777pw-867378s-projects.vercel.app'
     ],
 
-    'allowed_origins_patterns' => ['*'],
+    'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],
 
