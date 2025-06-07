@@ -114,7 +114,7 @@
         <img src="public/gcchnobg.png" alt="Watermark" class="watermark">
         
         <div class="header">
-            <img src="public/gcchnobg.png" alt="GCCH Logo" class="logo">
+            <img src="<?php echo public_path('gcchnobg.png'); ?>" alt="GCCH Logo" class="logo">
             <div class="title">Company Dashboard Performance Report</div>
             <div class="subtitle">Official Analytics Certificate</div>
         </div>
