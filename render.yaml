@@ -2,7 +2,9 @@ services:
   - type: web
     name: gcch-backend
     env: php
-    buildCommand: composer install --no-interaction --no-dev --prefer-dist
+    buildCommand: |
+      composer update
+      composer install --no-interaction --no-dev --prefer-dist
     startCommand: |
       php artisan config:cache
       php artisan route:cache
@@ -17,3 +19,5 @@ services:
         sync: false
       - key: DB_CONNECTION
         value: mysql
+      - key: COMPOSER_ALLOW_SUPERUSER
+        value: 1
