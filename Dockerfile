@@ -22,24 +22,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy application source
+# Copy existing application directory
 COPY . .
 
-# Copy .env file (required for artisan commands)
-COPY .env .  # Make sure .env exists in your project root
+# Install dependencies
+RUN composer install
 
-# Install dependencies without running scripts
-RUN composer install --no-scripts
-
-# Generate app key (requires .env)
-RUN php artisan key:generate
-
-# Run post-autoload-dump scripts manually
-RUN composer run-script post-autoload-dump
-
-# Set correct permissions
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+# Set permissions
+RUN chown -R www-data:www-data /var/www/storage
+RUN chmod -R 775 /var/www/storage
 
 # Expose port 8000
 EXPOSE 8000
