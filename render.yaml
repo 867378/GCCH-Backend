@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: gcch-backend
+    env: php
+    buildCommand: composer install --no-interaction --no-dev --prefer-dist
+    startCommand: |
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+      php -S 0.0.0.0:$PORT -t public
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        sync: false
+      - key: DB_CONNECTION
+        value: mysql
